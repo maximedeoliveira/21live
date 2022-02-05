@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@stitches/react': ^1.2.6
   '@types/node': 17.0.15
   '@types/react': 17.0.39
   eslint: 8.8.0
@@ -12,6 +13,7 @@ specifiers:
   typescript: 4.5.5
 
 dependencies:
+  '@stitches/react': 1.2.6_react@17.0.2
   next: 12.0.10_react-dom@17.0.2+react@17.0.2
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -206,6 +208,14 @@ packages:
   /@rushstack/eslint-patch/1.1.0:
     resolution: {integrity: sha512-JLo+Y592QzIE+q7Dl2pMUtt4q8SKYI5jDrZxrozEQxnGVOyYE+GWK9eLkwTaeN9DDctlaRAQ3TBmzZ1qdLE30A==}
     dev: true
+
+  /@stitches/react/1.2.6_react@17.0.2:
+    resolution: {integrity: sha512-gRVITYj8W4jJmoiVxWDv72yCvd12VvtUUAnTzs07EqmtvGCVgKZu3Dx0x5KVCcb0b6tfgvvNH2L84YrzdM4Mag==}
+    peerDependencies:
+      react: '>= 16.3.0'
+    dependencies:
+      react: 17.0.2
+    dev: false
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha1-7ihweulOEdK4J7y+UnC86n8+ce4=}
