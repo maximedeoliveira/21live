@@ -6,7 +6,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "prettier --write \"**/*.{ts,tsx}\""
+    "typecheck": "tsc --noEmit",
+    "prettier:test": "prettier --check \"**/*.{ts,tsx}\"",
+    "prettier:fix": "prettier --write \"**/*.{ts,tsx}\""
   },
   "dependencies": {
     "@stitches/react": "^1.2.6",
