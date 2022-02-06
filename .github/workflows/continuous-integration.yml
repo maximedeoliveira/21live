@@ -2,7 +2,9 @@ name: Conitnuous Integration
 on:
   push:
     branches:
-      - '!main'
+      - '**'
+    branches-ignore:
+      - 'main'
   pull_request:
     branches:
       - main
