@@ -1,25 +1,34 @@
-import type { GetServerSideProps, NextPage } from 'next';
+import type { GetServerSideProps } from 'next';
 import { getStreams, Stream } from '../lib/twictch';
 import Streams from '../components/Streams';
+import { styled } from '@stitches/react';
+import { dehydrate, Query, QueryClient, useQuery } from 'react-query';
 
-type HomeProps = {
-    streams: Stream[]
-}
+const STREAMS_KEY = 'streams';
 
-const Home = (props: HomeProps) => {
+const Home = () => {
+    const { data: streams } = useQuery(STREAMS_KEY, getStreams);
+
     return (
-        <Streams streams={props.streams} />
+        <Container>
+            <Streams streams={streams} />
+        </Container>
     );
 };
 
+const Container = styled('div', {
+    padding: '1.5rem 1rem',
+});
+
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const streams = await getStreams()
+    const queryClient = new QueryClient();
+    await queryClient.prefetchQuery(STREAMS_KEY, getStreams);
 
     return {
         props: {
-            streams
-        }
-    }
-}
+            dehydratedState: dehydrate(queryClient),
+        },
+    };
+};
 
 export default Home;

@@ -78,3 +78,7 @@ export const getStreams = async (): Promise<any> => {
 
     return data
 }
+
+export const formatThumbnailUrl = (thumbnailUrl: string, width?: string, height?: string) => {
+    return thumbnailUrl.replace('{width}', width ?? '320').replace('{height}', height ?? '180')
+}
