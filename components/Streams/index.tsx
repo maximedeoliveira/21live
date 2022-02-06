@@ -1,5 +1,5 @@
 import { styled } from '@stitches/react';
-import { Stream } from '../../lib/twictch';
+import { Stream } from '../../lib/twitch';
 import StreamCard from '../StreamCard';
 
 type StreamsProps = {
@@ -19,7 +19,7 @@ const Streams = (props: StreamsProps) => {
 const Grid = styled('div', {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-    gridGap: '1rem',
+    gridGap: '1.5rem',
     margin: '0 auto',
     maxWidth: '100%',
     width: '100%',

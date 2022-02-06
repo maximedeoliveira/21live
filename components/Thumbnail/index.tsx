@@ -1,5 +1,5 @@
 import { styled } from '@stitches/react';
-import { formatThumbnailUrl } from '../../lib/twictch';
+import { formatThumbnailUrl } from '../../lib/twitch';
 import Image from 'next/image';
 import ViewerCount from '../ViewerCount';
 
@@ -19,8 +19,15 @@ const Thumbnail = (props: ThumbnailProps) => {
                 height={180}
                 layout="responsive"
                 quality={100}
+                className="rounded-img"
             />
             <ViewerCount count={props.viewer_count} />
+            <style jsx global>{`
+                .rounded-img {
+                    border-top-left-radius: 8px;
+                    border-top-right-radius: 8px;
+                }
+            `}</style>
         </ThumbnailContainer>
     );
 };
