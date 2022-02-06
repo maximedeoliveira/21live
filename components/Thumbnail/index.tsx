@@ -7,7 +7,7 @@ type ThumbnailProps = {
     url: string;
     user_name: string;
     viewer_count: number;
-}
+};
 
 const Thumbnail = (props: ThumbnailProps) => {
     return (
@@ -17,16 +17,16 @@ const Thumbnail = (props: ThumbnailProps) => {
                 alt={props.user_name}
                 width={320}
                 height={180}
-                layout='responsive'
+                layout="responsive"
                 quality={100}
             />
             <ViewerCount count={props.viewer_count} />
         </ThumbnailContainer>
-    )
-}
+    );
+};
 
 const ThumbnailContainer = styled('div', {
-    position: 'relative'
-})
+    position: 'relative',
+});
 
-export default Thumbnail
+export default Thumbnail;
