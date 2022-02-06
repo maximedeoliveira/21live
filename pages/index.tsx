@@ -1,5 +1,5 @@
 import type { GetServerSideProps } from 'next';
-import { getStreams, Stream } from '../lib/twictch';
+import { getStreams, Stream } from '../lib/twitch';
 import Streams from '../components/Streams';
 import { styled } from '@stitches/react';
 import { dehydrate, Query, QueryClient, useQuery } from 'react-query';
@@ -17,7 +17,7 @@ const Home = () => {
 };
 
 const Container = styled('div', {
-    padding: '1.5rem 1rem',
+    padding: '1.5rem .5rem',
 });
 
 export const getServerSideProps: GetServerSideProps = async (context) => {

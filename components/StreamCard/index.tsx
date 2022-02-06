@@ -1,4 +1,4 @@
-import { Stream } from '../../lib/twictch';
+import { Stream } from '../../lib/twitch';
 import Thumbnail from '../Thumbnail';
 import { styled } from '@stitches/react';
 import Link from 'next/link';
@@ -11,7 +11,7 @@ const StreamCard = (props: StreamCardProps) => {
     const { stream } = props;
 
     return (
-        <div>
+        <StreamContainer>
             <Link href={`https://twitch.tv/${stream.user_name}`} passHref>
                 <a target="_blank">
                     <Thumbnail
@@ -21,19 +21,31 @@ const StreamCard = (props: StreamCardProps) => {
                     />
                 </a>
             </Link>
-            <Title>{stream.title}</Title>
-            <Streamer>{stream.user_name}</Streamer>
-        </div>
+            <StreamInfoContainer>
+                <Title>{stream.title}</Title>
+                <Streamer>{stream.user_name}</Streamer>
+            </StreamInfoContainer>
+        </StreamContainer>
     );
 };
 
+const StreamContainer = styled('div', {
+    backgroundColor: '#1A202C',
+    borderRadius: '8px',
+});
+
+const StreamInfoContainer = styled('div', {
+    padding: '12px',
+});
+
 const Title = styled('p', {
-    marginBottom: '5px',
+    margin: '0 0 8px 0',
+    fontSize: '13px',
 });
 
 const Streamer = styled('p', {
-    marginTop: '5px',
-    fontSize: '13px',
+    margin: 0,
+    fontSize: '12px',
     color: '#b1b1b1',
 });
 
