@@ -1,13 +1,18 @@
 import type { GetServerSideProps } from 'next';
-import { getStreams, Stream } from '../lib/twitch';
+import { getAppToken, getStreams } from '../lib/twitch';
 import Streams from '../components/Streams';
 import { styled } from '@stitches/react';
-import { dehydrate, Query, QueryClient, useQuery } from 'react-query';
+import useStreams from '../hooks/useStreams';
+import useToken from '../hooks/useToken';
 
-const STREAMS_KEY = 'streams';
+type HomeProps = {
+    token: TwitchAppToken;
+    streams: Stream[];
+};
 
-const Home = () => {
-    const { data: streams } = useQuery(STREAMS_KEY, getStreams);
+const Home = (props: HomeProps) => {
+    const { data: token } = useToken(props.token);
+    const { data: streams } = useStreams(token ?? props.token, props.streams);
 
     return (
         <Container>
@@ -21,12 +26,13 @@ const Container = styled('div', {
 });
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const queryClient = new QueryClient();
-    await queryClient.prefetchQuery(STREAMS_KEY, getStreams);
+    const token = await getAppToken();
+    const streams = await getStreams(token);
 
     return {
         props: {
-            dehydratedState: dehydrate(queryClient),
+            token,
+            streams,
         },
     };
 };
