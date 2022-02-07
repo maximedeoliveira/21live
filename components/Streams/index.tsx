@@ -1,5 +1,4 @@
 import { styled } from '@stitches/react';
-import { Stream } from '../../lib/twitch';
 import StreamCard from '../StreamCard';
 
 type StreamsProps = {

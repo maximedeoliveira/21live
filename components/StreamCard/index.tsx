@@ -1,4 +1,3 @@
-import { Stream } from '../../lib/twitch';
 import Thumbnail from '../Thumbnail';
 import { styled } from '@stitches/react';
 import Link from 'next/link';
